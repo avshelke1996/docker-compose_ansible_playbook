@@ -17,7 +17,7 @@ pipeline{
         stage('build'){
             steps{
 				sh 'pwd'
-                sh 'playbook.yaml'
+                sh '/home/avi/giiit/playbook.yaml'
             }
         }
         stage('test'){
