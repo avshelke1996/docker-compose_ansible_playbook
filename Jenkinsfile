@@ -11,6 +11,8 @@ pipeline{
 				sh 'whoami'
                 sh 'chmod 777 docker-compose.yaml'
                 sh 'sudo docker compose down --rmi all --volumes || true'
+				sh 'chmod 777 clone.sh'
+				sh 'sudo ./clone.sh'
             }
         }
         stage('build'){
