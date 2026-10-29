@@ -1,0 +1,26 @@
+---
+
+# hosts
+- hosts: qalinux
+  user: avi
+  become: yes
+  connection: ssh
+  gather_facts: yes
+    
+# target
+  tasks:
+  - name: install docker
+    action: dnf name=docker state=present
+
+  - name: clonning_git_repo
+    action: ansible.builtin.git repo="{{giturl}}" dest=giiit
+  
+  - name: create_bridge_network
+    action: community.docker.docker_network name=avi_network driver=bridge state=present
+
+  - name: create_container_with_our_network
+    action: community.docker.docker_container name=s1_container image=tomcat state=started network_mode=avi_network published_ports=8080:8080
+
+  - name: copying_file_to_tomcat_webapps
+    action: community.docker.docker_container_copy_into container=s1_container path=giiit/sample.war container_path="{{path}}"
+    
