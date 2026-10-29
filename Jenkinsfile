@@ -9,7 +9,7 @@ pipeline{
             steps{
                 echo "clean"
 				sh 'whoami'
-                sh 'chmod 777 docker-compose.yaml'
+                sh 'chmod 777 playbook.yaml'
                 sh 'sudo docker compose down --rmi all --volumes || true'
 				sh 'chmod 777 clone.sh'
 				sh 'sudo ./clone.sh'
@@ -17,8 +17,7 @@ pipeline{
         }
         stage('build'){
             steps{
-            
-                sh 'docker-compose up'
+                sh 'playbook.yaml'
             }
         }
         stage('test'){
