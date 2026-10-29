@@ -1,0 +1,14 @@
+services:
+  myservice:
+    image: tomcat:10
+    container_name: s1_container
+    ports:
+      - 8080:8080
+    volumes:
+      - /home/avi/giiit/sample.war:/usr/local/tomcat/webapps
+    netwoks:
+      avi_network
+
+networks:
+  avi_network:
+    driver: bridge
