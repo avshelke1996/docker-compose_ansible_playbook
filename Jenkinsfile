@@ -9,10 +9,10 @@ pipeline{
             steps{
                 echo "clean"
 				sh 'whoami'
-                sh 'chmod 777 playbook.yaml'
+                sh 'chmod 777 playbook.yaml || true'
                 sh 'sudo docker compose down --rmi all --volumes || true'
-				sh 'chmod 777 clone.sh'
-				sh 'sudo ./clone.sh'
+				sh 'chmod 777 clone.sh || true'
+				sh 'sudo ./clone.sh || true'
             }
         }
         stage('build'){
