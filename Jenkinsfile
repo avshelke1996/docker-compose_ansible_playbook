@@ -16,6 +16,7 @@ pipeline{
         }
         stage('build'){
             steps{
+				sh 'pwd'
                 sh 'playbook.yaml'
             }
         }
