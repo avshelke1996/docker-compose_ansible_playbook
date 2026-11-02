@@ -7,7 +7,7 @@ services:
     volumes:
       - /home/avi/giiit/sample.war:/usr/local/tomcat/webapps
     networks:
-      avi_network
+      - avi_network
 
 networks:
   avi_network:
