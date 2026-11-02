@@ -17,7 +17,7 @@ pipeline{
         stage('build'){
             steps{
 				sh 'pwd'
-				sh 'cd giiit'
+				sh 'cd /home/avi/giiit'
                 sh 'ansible-playbook playbook.yaml'
             }
         }
