@@ -5,7 +5,7 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - /home/avi/giiit/sample.war:/usr/local/tomcat/webapps
+      - /home/avi/giiit/sample.war:/usr/local/tomcat/webapps/sample.war
     networks:
       - avi_network
 
