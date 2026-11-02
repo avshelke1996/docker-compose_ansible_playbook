@@ -12,6 +12,9 @@
   - name: install docker
     action: dnf name=docker state=present
 
+  - name: start_docker
+    action: service name=docker state=started
+
   - name: clonning_git_repo
     action: ansible.builtin.git repo=https://github.com/avshelke1996/docker-compose_ansible_playbook.git dest=giiit
   
