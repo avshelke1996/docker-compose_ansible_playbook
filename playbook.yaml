@@ -16,7 +16,7 @@
     action: service name=docker state=started
 
   - name: clonning_git_repo
-    action: ansible.builtin.git repo=https://github.com/avshelke1996/docker-compose_ansible_playbook.git dest=giiit
+    action: ansible.builtin.git repo=https://github.com/avshelke1996/docker-compose_ansible_playbook.git dest=/home/avi/giiit force=yes
   
   - name: execute_docker_compose
     action: community.docker.docker_compose_v2 prject_src=/home/avi/giiit state=present
